@@ -30,7 +30,7 @@ const HomePage = () => {
       <span className="pf-italic">Within</span> You
     </h1>
     <h1 className="text-lg mt-10">
-      Celestial helps you explore your cosmic path
+      AstroGuide helps you explore your cosmic path
     </h1>
     <div className="flex gap-4 mt-10">
       <button className="bg-lime-300 rounded-md px-3 py-2 text-gray-900">
@@ -56,7 +56,7 @@ const HomePage = () => {
               textAlign: "left",
             }}
           >
-            At Celestial, we are committed to helping you discover the
+            At AstroGuide, we are committed to helping you discover the
             incredible wisdom that the stars and planets hold. Our commitment
             includes:
           </h1>
