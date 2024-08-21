@@ -13,27 +13,37 @@ const HomePage = () => {
         <Spline scene="https://prod.spline.design/FYEAMKpg7S-CBcqb/scene.splinecode" />
         <div className="bg-black opacity-90"></div>
       </div> */}
-      <div className="bg-[] relative">
-        <img className="w-full h-auto" src={bg} alt="Background Image" />
-        <div className="absolute inset-0 flex flex-col mt-24 items-center text-white">
-          <h1 className="text-4xl md:text-8xl font-bold pf-normal">
-            Unveiling the <span className="pf-italic">Universe</span>
-          </h1>
-          <h1 className="text-4xl md:text-8xl font-bold mt-8 pf-normal">
-            <span className="pf-italic">Within</span> You
-          </h1>
-          <h1 className="text-lg mt-10">
-            Celestial helps you exploring your cosmic path
-          </h1>
-          <div className="flex gap-4 mt-10">
-            <button className="bg-lime-300 rounded-md px-3 py-2 text-gray-900 ">
-              Book a session
-            </button>
-            <button className="bg-transparent rounded-md px-3 py-2 text-lime-300 border-lime-300 ">
-              Weekly Horoscope
-            </button>
-          </div>
-        </div>
+      <div className="relative">
+  <img className="w-full h-auto" src={bg} alt="Background Image" />
+
+  {/* Spline model positioned absolutely above the image */}
+  <div className="absolute inset-0 z-10">
+    <Spline scene="https://prod.spline.design/ZXwzan74mHFNauZi/scene.splinecode" />
+  </div>
+
+  {/* Text overlay positioned above both the image and the Spline model */}
+  <div className="absolute inset-0 z-20 flex flex-col mt-24 items-center text-white">
+    <h1 className="text-4xl md:text-8xl font-bold pf-normal">
+      Unveiling the <span className="pf-italic">Universe</span>
+    </h1>
+    <h1 className="text-4xl md:text-8xl font-bold mt-8 pf-normal">
+      <span className="pf-italic">Within</span> You
+    </h1>
+    <h1 className="text-lg mt-10">
+      Celestial helps you explore your cosmic path
+    </h1>
+    <div className="flex gap-4 mt-10">
+      <button className="bg-lime-300 rounded-md px-3 py-2 text-gray-900">
+        Book a session
+      </button>
+      <button className="bg-transparent rounded-md px-3 py-2 text-lime-300 border-lime-300">
+        Weekly Horoscope
+      </button>
+    </div>
+  </div>
+</div>
+
+        
         <div className="p-[4rem]">
           <h1
             className="text-[2.6rem] pf-normal leading-relaxed"
@@ -221,7 +231,7 @@ const HomePage = () => {
             </div>
           </div>
         </div>
-      </div>
+      
     </>
   );
 };
