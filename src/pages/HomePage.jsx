@@ -230,9 +230,9 @@ const HomePage = () => {
           </div>
         </div>
       </div>
-      <div className="mt-20 h-fit">
+      {/* <div className="mt-20 h-fit">
         <img src={bg3} />
-      </div>
+      </div> */}
       <div className="mt-40 relative">
         <img src={footer} />
         <div className="absolute inset-0 mt-20 p-20 flex flex-row gap-10 justify-center items-center">
