@@ -58,21 +58,37 @@ const AskAi = () => {
       alert("Please select a date.");
     }
   };
-  const [hasGpu, setHasGpu] = useState(false);
+  const [hasDedicatedGpu, setHasDedicatedGpu] = useState(false);
 
   useEffect(() => {
-    setHasGpu(hasWebGL());
+    const rendererInfo = getRendererInfo();
+    if (rendererInfo) {
+      // Heuristic to check for dedicated GPU (you can expand this based on more cases)
+      const renderer = rendererInfo.renderer.toLowerCase();
+      if (renderer.includes("nvidia") || renderer.includes("amd") || renderer.includes("radeon")) {
+        setHasDedicatedGpu(true);
+      } else if (renderer.includes("intel")) {
+        setHasDedicatedGpu(false); // Integrated GPU
+      } else {
+        setHasDedicatedGpu(false); // Default to integrated GPU
+      }
+    }
   }, []);
 
-  function hasWebGL() {
+  function getRendererInfo() {
     try {
       const canvas = document.createElement("canvas");
-      return !!(
-        window.WebGLRenderingContext && 
-        (canvas.getContext("webgl") || canvas.getContext("experimental-webgl"))
-      );
+      const gl = canvas.getContext("webgl") || canvas.getContext("experimental-webgl");
+      if (!gl) {
+        return null;
+      }
+      const debugInfo = gl.getExtension('WEBGL_debug_renderer_info');
+      return {
+        vendor: gl.getParameter(debugInfo.UNMASKED_VENDOR_WEBGL),
+        renderer: gl.getParameter(debugInfo.UNMASKED_RENDERER_WEBGL),
+      };
     } catch (e) {
-      return false;
+      return null;
     }
   }
 
@@ -90,7 +106,7 @@ const AskAi = () => {
       scene="https://prod.spline.design/9rB92fOsQmke9hQu/scene.splinecode"
       className="h-4/5 max-h-[30rem] w-full"
     /> */}
-    {hasGpu ? (
+    {hasDedicatedGpu ? (
           <Spline
             scene="https://prod.spline.design/9rB92fOsQmke9hQu/scene.splinecode"
             className="h-4/5 max-h-[30rem]"
