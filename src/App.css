@@ -1,9 +1,22 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-#root {
+/* #root {
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+} */
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0); /* Start and end position */
+  }
+  50% {
+    transform: translateY(10px); /* Middle position (down by 10px) */
+  }
+}
+
+.animate-float {
+  animation: float 5s ease-in-out infinite; /* 3s duration, smooth easing, infinite loop */
 }

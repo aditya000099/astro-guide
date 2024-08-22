@@ -4,8 +4,10 @@ import Header from "../components/Header";
 import bg from "../assets/bg.png";
 import bg2 from "../assets/bg2.png";
 import bg3 from "../assets/bg3.png";
+import bgs from "../assets/bgs.png";
 import footer from "../assets/footer.png";
 import circle from "../assets/Circle.png";
+import '../App.css';
 
 const HomePage = () => {
   return (
@@ -20,7 +22,8 @@ const HomePage = () => {
 
         {/* Spline model positioned absolutely above the image */}
         <div className="absolute inset-0 z-10">
-          <Spline scene="https://prod.spline.design/ZXwzan74mHFNauZi/scene.splinecode" />
+          <img src={bgs} className="animate-float" alt="Background Image" />
+          {/* <Spline scene="https://prod.spline.design/ZXwzan74mHFNauZi/scene.splinecode" /> */}
         </div>
 
         {/* Text overlay positioned above both the image and the Spline model */}
@@ -236,60 +239,58 @@ const HomePage = () => {
       <div className="mt-40 relative">
         <img src={footer} />
         <div className="absolute inset-0 mt-20 p-20 flex flex-row gap-10 justify-center items-center">
-        <div className="">
-        <h1 className="text-xl text-lime-300 leading-relaxed">
-            ASTROGUIDE
-          </h1>
-        <h1 className="text-xl mt-10 leading-relaxed ">
-            We help you exploring your cosmic path
-          </h1>
+          <div className="">
+            <h1 className="text-xl text-lime-300 leading-relaxed">
+              ASTROGUIDE
+            </h1>
+            <h1 className="text-xl mt-10 leading-relaxed ">
+              We help you exploring your cosmic path
+            </h1>
           </div>
-        <div className="">
-        <h1 className="text-xl pf-normal text-lime-300 leading-relaxed">
-            Company
-          </h1>
-          <ul>
-            <li>About Us</li>
-            <li>Readers</li>
-            <li>Service</li>
-            <li>Horoscope</li>
-          </ul>
+          <div className="">
+            <h1 className="text-xl pf-normal text-lime-300 leading-relaxed">
+              Company
+            </h1>
+            <ul>
+              <li>About Us</li>
+              <li>Readers</li>
+              <li>Service</li>
+              <li>Horoscope</li>
+            </ul>
           </div>
-        <div className="">
-        <h1 className="text-xl pf-normal text-lime-300 leading-relaxed">
-            Services
-          </h1>
-          <ul>
-            <li>Natal Chart Readings</li>
-            <li>Compatibility Readings</li>
-            <li>Progression Readings</li>
-            <li>Speciality Readings</li>
-          </ul>
+          <div className="">
+            <h1 className="text-xl pf-normal text-lime-300 leading-relaxed">
+              Services
+            </h1>
+            <ul>
+              <li>Natal Chart Readings</li>
+              <li>Compatibility Readings</li>
+              <li>Progression Readings</li>
+              <li>Speciality Readings</li>
+            </ul>
           </div>
-        <div className="">
-        <h1 className="text-xl pf-normal text-lime-300 leading-relaxed">
-            Contact Us
-          </h1>
-          <ul>
-            <li>astrog@gmail.com</li>
-            <li>+91 463847393</li>
-            <li>#47 Astro Street, India</li>
-            
-          </ul>
+          <div className="">
+            <h1 className="text-xl pf-normal text-lime-300 leading-relaxed">
+              Contact Us
+            </h1>
+            <ul>
+              <li>astrog@gmail.com</li>
+              <li>+91 463847393</li>
+              <li>#47 Astro Street, India</li>
+            </ul>
           </div>
-        <div className="">
-        <h1 className="text-xl pf-normal text-lime-300 leading-relaxed">
-            Subscribe for any updates
-          </h1>
-          <div className="flex gap-4 mt-10">
-          <button className="bg-transparent rounded-md px-3 border-white">
-              Enter your email
-            </button>
-            <button className="bg-lime-300 rounded-md px-3 text-gray-900">
-              Subscribe
-            </button>
-            
-          </div>
+          <div className="">
+            <h1 className="text-xl pf-normal text-lime-300 leading-relaxed">
+              Subscribe for any updates
+            </h1>
+            <div className="flex gap-4 mt-10">
+              <button className="bg-transparent rounded-md px-3 border-white">
+                Enter your email
+              </button>
+              <button className="bg-lime-300 rounded-md px-3 text-gray-900">
+                Subscribe
+              </button>
+            </div>
           </div>
         </div>
       </div>
