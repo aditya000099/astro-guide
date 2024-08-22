@@ -2,7 +2,7 @@ import React from 'react'
 
 const Header = () => {
   return (
-    <div className='bg-[#020013] flex flex-row gap-40 min-h-12'>
+    <div className='bg-transparent flex flex-row gap-40 min-h-12'>
         <div className='w-1/3 flex gap-6 p-4 justify-center'>
             ASTROGUIDE
         </div>

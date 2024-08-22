@@ -58,14 +58,27 @@ const AskAi = () => {
   };
 
   return (
-    <div className="bg-black" >
-      <Header />
+    <div className="bg-black">
+      <div className="bg-black flex flex-row justify-center items-center gap-40 min-h-12">
+        <div className="flex p-4 justify-center font-black text-5xl">
+          Astra<span className="text-lime-300">Ai</span>
+        </div>
+
+        {/* <div className="w-1/2 flex gap-6 p-6 font-black">
+          <h1>AstraAi</h1>
+        </div> */}
+        {/* <div className="w-1/3 flex gap-6 p-6 justify-end">
+          <button className="b bg-lime-300 rounded-md px-2 py-1.5 text-gray-900 mr-20">
+            Reservation
+          </button>
+        </div> */}
+      </div>
+      {/* <Header /> */}
       <div className="flex flex-col items-center justify-center w-full bg-black">
         <Spline
           scene="https://prod.spline.design/9rB92fOsQmke9hQu/scene.splinecode"
           className="h-4/5 max-h-[30rem]"
         />
-
         <div className="flex flex-col w-full h-fit max-w-4xl px-4 py-4 mt-4 space-y-4 z-10">
           <div className="w-full flex">
             <input
@@ -82,7 +95,9 @@ const AskAi = () => {
               onChange={handleDateChange}
               className="rounded-3xl  border-white shadow-lg h-16 p-4 font-bold text-white outline-none ml-4 mr-4 w-1/4"
             />
-            <button className="w-16 h-16 rounded-full bg-lime-300 text-black font-bold text-3xl text-center">↑</button>
+            <button className="w-16 h-16 rounded-full bg-lime-300 text-black font-bold text-3xl text-center">
+              ↑
+            </button>
           </div>
           <div className="bg-white bg-opacity-5 rounded-lg p-4 space-y-4 overflow-auto">
             {/* <h2 className="text-white text-xl mb-2 font-bold">
