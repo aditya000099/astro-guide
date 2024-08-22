@@ -5,9 +5,12 @@ import bg from "../assets/bg.png";
 import bg2 from "../assets/bg2.png";
 import bg3 from "../assets/bg3.png";
 import bgs from "../assets/bgs.png";
+// import ai from "../assets/ai2.gif";
+// import ai from "../assets/aip.png";
+import ai from "../assets/aip6.png";
 import footer from "../assets/footer.png";
 import circle from "../assets/Circle.png";
-import '../App.css';
+import "../App.css";
 
 const HomePage = () => {
   return (
@@ -37,13 +40,25 @@ const HomePage = () => {
           <h1 className="text-lg mt-10">
             AstroGuide helps you explore your cosmic path
           </h1>
-          <div className="flex gap-4 mt-10">
-            <button className="bg-lime-300 rounded-md px-3 py-2 text-gray-900">
-              Book a session
-            </button>
-            <button className="bg-transparent rounded-md px-3 py-2 text-lime-300 border-lime-300">
-              Weekly Horoscope
-            </button>
+          <div className="mt-10 flex flex-col">
+            <div className="flex flex-row justify-center items-center gap-4 mt-10">
+              <button onClick={() => window.location.href = '/book'} className="bg-lime-300 rounded-md px-3 py-2 text-gray-900">
+                Book a session
+              </button>
+              <button onClick={() => window.location.href = '/ai'} className="bg-[#020013] bg-opacity-90 rounded-xl px-3 py-1 text-white  flex justify-center items-center gap-3">
+              <img src={ai} width={35}  className="bg- rounded-xl"/>
+                Get AI readings
+              </button>
+              {/* <button className="bg-transparent rounded-md px-3 py-2 text-lime-300 border-lime-300">
+                Weekly Horoscope
+              </button> */}
+            </div>
+            {/* <div className="flex"> */}
+              {/* <button  className="bg-[#020013] bg-opacity-90 mt-10 rounded-xl px-3 py-1 text-white  flex justify-center items-center gap-4">
+              <img src={ai} width={35}  className="bg- rounded-xl"/>
+                Get AI readings
+              </button> */}
+              {/* </div> */}
           </div>
         </div>
       </div>

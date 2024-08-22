@@ -58,7 +58,7 @@ const AskAi = () => {
   };
 
   return (
-    <>
+    <div className="bg-black" >
       <Header />
       <div className="flex flex-col items-center justify-center w-full bg-black">
         <Spline
@@ -97,7 +97,7 @@ const AskAi = () => {
                 >
                   <div className="flex items-start">
                     <div className="flex items-center space-x-2">
-                      <div className="w-8 h-8 bg-black text-white font-bold rounded-full flex items-center justify-center p-6">
+                      <div className="w-8 h-8 bg-black border border-white text-white font-bold rounded-full flex items-center justify-center p-6">
                         Me
                       </div>
                       <div className="bg-lime-300 text-black p-3 rounded-2xl max-w-xs font-semibold">
@@ -121,7 +121,7 @@ const AskAi = () => {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
