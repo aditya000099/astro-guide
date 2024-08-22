@@ -79,9 +79,16 @@ const AskAi = () => {
     <div className={styles.container}>
     <div className="bg-black w-full min-h-screen flex flex-col items-center justify-center">
   <div className="bg-black flex flex-row justify-center items-center gap-40 w-full max-w-6xl p-4">
-    <div className="flex p-4 justify-center font-black text-5xl">
+    <div className="flex flex-col items-center p-4 justify-center font-black text-5xl">
+    <div>
       Astro<span className="text-lime-300">Ai</span>
+      </div>
+      <h1 className="text-2xl mt-4 font-semibold text-transparent bg-clip-text bg-gradient-to-r from-sky-500 to-pink-500">
+  Get horoscope in seconds
+</h1>
     </div>
+    
+
   </div>
 
   <div className="flex flex-col items-center justify-center w-full bg-black mt-4">
@@ -105,8 +112,8 @@ const AskAi = () => {
           onChange={handleDateChange}
           className="rounded-3xl border-white shadow-lg h-16 p-4 font-bold text-white outline-none ml-4 w-1/4"
         />
-        <button className="w-16 h-16 rounded-full bg-lime-300 text-black font-bold text-3xl text-center ml-4">
-          ↑
+        <button onClick={handleSubmit} className="w-16 h-16 rounded-full bg-lime-300 text-black font-bold text-3xl text-center ml-4">
+          
         </button>
       </div>
       <div className="bg-white bg-opacity-5 rounded-lg p-4 space-y-4 overflow-auto">
