@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import Spline from "@splinetool/react-spline";
 import Header from "../components/Header";
+import styles from "./AskAi.module.css"; // Import the CSS module
 
 const AskAi = () => {
   const [query, setQuery] = useState("");
@@ -58,6 +59,7 @@ const AskAi = () => {
   };
 
   return (
+    <div className={styles.container}>
     <div className="bg-black w-full min-h-screen flex flex-col items-center justify-center">
   <div className="bg-black flex flex-row justify-center items-center gap-40 w-full max-w-6xl p-4">
     <div className="flex p-4 justify-center font-black text-5xl">
@@ -124,6 +126,7 @@ const AskAi = () => {
       </div>
     </div>
   </div>
+</div>
 </div>
 
   );
