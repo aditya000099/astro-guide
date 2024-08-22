@@ -2,7 +2,6 @@ import React, { useState, useEffect, useRef } from "react";
 import Spline from "@splinetool/react-spline";
 import Header from "../components/Header";
 import styles from "./AskAi.module.css"; // Import the CSS module
-import bg3 from "../assets/bg3.png";
 
 const AskAi = () => {
   const [query, setQuery] = useState("");
@@ -58,37 +57,21 @@ const AskAi = () => {
       alert("Please select a date.");
     }
   };
-  const [hasDedicatedGpu, setHasDedicatedGpu] = useState(false);
+  const [hasGpu, setHasGpu] = useState(false);
 
   useEffect(() => {
-    const rendererInfo = getRendererInfo();
-    if (rendererInfo) {
-      // Heuristic to check for dedicated GPU (you can expand this based on more cases)
-      const renderer = rendererInfo.renderer.toLowerCase();
-      if (renderer.includes("nvidia") || renderer.includes("amd") || renderer.includes("radeon")) {
-        setHasDedicatedGpu(true);
-      } else if (renderer.includes("intel")) {
-        setHasDedicatedGpu(false); // Integrated GPU
-      } else {
-        setHasDedicatedGpu(false); // Default to integrated GPU
-      }
-    }
+    setHasGpu(hasWebGL());
   }, []);
 
-  function getRendererInfo() {
+  function hasWebGL() {
     try {
       const canvas = document.createElement("canvas");
-      const gl = canvas.getContext("webgl") || canvas.getContext("experimental-webgl");
-      if (!gl) {
-        return null;
-      }
-      const debugInfo = gl.getExtension('WEBGL_debug_renderer_info');
-      return {
-        vendor: gl.getParameter(debugInfo.UNMASKED_VENDOR_WEBGL),
-        renderer: gl.getParameter(debugInfo.UNMASKED_RENDERER_WEBGL),
-      };
+      return !!(
+        window.WebGLRenderingContext && 
+        (canvas.getContext("webgl") || canvas.getContext("experimental-webgl"))
+      );
     } catch (e) {
-      return null;
+      return false;
     }
   }
 
@@ -102,22 +85,10 @@ const AskAi = () => {
   </div>
 
   <div className="flex flex-col items-center justify-center w-full bg-black mt-4">
-    {/* <Spline
+    <Spline
       scene="https://prod.spline.design/9rB92fOsQmke9hQu/scene.splinecode"
       className="h-4/5 max-h-[30rem] w-full"
-    /> */}
-    {hasDedicatedGpu ? (
-          <Spline
-            scene="https://prod.spline.design/9rB92fOsQmke9hQu/scene.splinecode"
-            className="h-4/5 max-h-[30rem]"
-          />
-        ) : (
-          <img
-            src={bg3}
-            alt="Fallback for Spline"
-            className="h-4/5 max-h-[30rem]"
-          />
-        )}
+    />
     <div className="flex flex-col w-full max-w-4xl px-4 py-4 space-y-4 z-10">
       <div className="w-full flex items-center">
         <input
