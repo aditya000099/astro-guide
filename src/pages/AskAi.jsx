@@ -58,7 +58,7 @@ const AskAi = () => {
   };
 
   return (
-    <div className="bg-black">
+    <div className="bg-black w-full">
       <div className="bg-black flex flex-row justify-center items-center gap-40 min-h-12">
         <div className="flex p-4 justify-center font-black text-5xl">
           Astra<span className="text-lime-300">Ai</span>
