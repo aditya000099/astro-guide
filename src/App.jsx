@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import AskAi from "./pages/AskAi";
 import LoginPage from "./pages/LoginPage";
+import BookSession from "./pages/BookSession";
 
 const App = () => {
   return (
@@ -10,9 +11,10 @@ const App = () => {
       <Router>
       
           <Routes>
-            <Route exact path="/" element={<HomePage />} />
+            <Route exact path="/home" element={<HomePage />} />
             <Route exact path="/ai" element={<AskAi />} />
-            <Route exact path="/login" element={<LoginPage />} />
+            <Route exact path="/" element={<LoginPage />} />
+            <Route exact path="/book" element={<BookSession />} />
           </Routes>
        
       </Router>

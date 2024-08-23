@@ -6,7 +6,7 @@ import { FaRegHandPointRight } from "react-icons/fa6";
 const LoginPage = () => {
   const handleSubmit = (event) => {
     event.preventDefault(); // Prevent the form from refreshing the page
-    window.location.href = "/"; // Redirect to '/'
+    window.location.href = "/home"; // Redirect to '/'
   };
 
   return (
