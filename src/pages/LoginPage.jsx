@@ -42,7 +42,7 @@ const LoginPage = () => {
 
     try {
       // const response = await axios.post('http://localhost:8080/api/auth/login', {
-      const response = await axios.post('https://astroai-beige.vercel.app/api/auth/login', {
+      const response = await axios.post('https://astroaibackend.onrender.com/api/auth/login', {
         userEmail,
         userPassword,
       }, {
