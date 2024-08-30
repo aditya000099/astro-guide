@@ -4,7 +4,8 @@ import Header from "../components/Header";
 
 const BookSession = () => {
 //   const apiUrl = "http://localhost:8080";
-  const apiUrl = "https://astroai-beige.vercel.app";
+  // const apiUrl = "https://astroai-beige.vercel.app";
+  const apiUrl = "https://astroaibackend.onrender.com";
   const astrologers = [
     {
       name: "Rushkof",

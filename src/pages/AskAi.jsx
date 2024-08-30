@@ -42,7 +42,7 @@ const AskAi = () => {
         prompt: `You are a professional astrologer. Reply to this question with just the answer and no greetings or formalities in short like 2 lines, just the answer in a paragraph: ${query} for today for people born on ${date}`,
       };
       try {
-        const res = await fetch("https://astroai-beige.vercel.app/chat", {
+        const res = await fetch("https://astroaibackend.onrender.com/chat", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(requestBody),
