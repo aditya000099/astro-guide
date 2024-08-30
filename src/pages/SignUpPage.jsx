@@ -1,14 +1,19 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+// import { useCookies } from "react-cookie";
 import { FaGoogle, FaApple } from "react-icons/fa";
+import bpat from "../assets/bpat.png";
 import { FaRegHandPointRight } from "react-icons/fa6";
 import axios from "axios";
+import { toast } from "react-toastify";
 import Cookies from "js-cookie";
 import  { jwtDecode } from "jwt-decode";
-import { toast, ToastContainer } from "react-toastify";
-import 'react-toastify/dist/ReactToastify.css';
-import bpat from "../assets/bpat.png";
 
-const LoginPage = () => {
+const SignupPage = () => {
+//   const [cookies] = useCookies(['token']);
+//   const navigate = useNavigate();
+
+  const [userName, setUserName] = useState('');
   const [userEmail, setUserEmail] = useState('');
   const [userPassword, setUserPassword] = useState('');
 
@@ -18,7 +23,6 @@ const LoginPage = () => {
       try {
         const decodedToken = jwtDecode(token);
         const currentTime = Date.now() / 1000;
-
         if (decodedToken.exp < currentTime) {
           Cookies.remove('authToken');
           toast.error('Session expired. Please log in again.');
@@ -35,14 +39,10 @@ const LoginPage = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    if (userPassword.length < 6) {
-      toast.error("Password must be at least 6 characters long.");
-      return;
-    }
-
     try {
-      // const response = await axios.post('http://localhost:8080/api/auth/login', {
-      const response = await axios.post('https://astroai-beige.vercel.app/api/auth/login', {
+    //   const response = await axios.post('http://localhost:8080/api/auth/register', {
+      const response = await axios.post('https://astroai-beige.vercel.app/api/auth/register', {
+        userName,
         userEmail,
         userPassword,
       }, {
@@ -51,32 +51,23 @@ const LoginPage = () => {
         }
       });
 
-      const token = response.data.token;
-      Cookies.set('authToken', token); // Set cookie for 7 days
-
-      toast.success('Login successful!');
-      setTimeout(() => {
-        window.location.href = '/home';
-      }, 1500);
-      
+      toast.success(response.data.message);
+      console.log('User registered:', response.data);
     } catch (error) {
-      toast.error(error.response?.data?.message || 'Invalid credentials, please try again');
+      toast.error(error.response?.data?.message || 'An error occurred');
       console.error('There was an error!', error);
     }
   };
 
   return (
     <div className="flex justify-center items-center w-screen h-screen bg-black">
-      <ToastContainer />
       <div className="relative flex justify-center items-center w-full h-full">
         <img
           src={bpat}
           alt="Background"
           className="absolute inset-0 w-full h-full object-cover"
         />
-
         <div className="absolute inset-0 bg-gradient-to-b from-blue-900/30 to-transparent"></div>
-
         <div className="absolute inset-0 flex items-center justify-center space-x-8 gap-20">
           <div className="flex flex-col justify-center items-center bg-white bg-opacity-0 rounded-2xl p-10 px-20 shadow-lg">
             <h2 className="text-5xl font-black text-center text-white mb-4">
@@ -109,17 +100,29 @@ const LoginPage = () => {
 
           <div className="flex flex-col justify-center items-center bg-white bg-opacity-10 rounded-2xl p-10 px-20 shadow-lg">
             <h2 className="text-2xl font-bold text-center text-white mb-4">
-              Login
+              Sign Up
             </h2>
             <h2 className="text-sm font-semibold text-center text-white mb-4">
-              Enter your details to login to your account
+              Enter your details to create an account
             </h2>
+
+            <div className="mb-4 w-full">
+              <input
+                type="text"
+                placeholder="Enter Username"
+                value={userName}
+                name="userName"
+                onChange={(e) => setUserName(e.target.value)}
+                className="w-full px-4 py-3 rounded-lg bg-white bg-opacity-10 text-black focus:outline-none focus:bg-white focus:border-gray-500"
+              />
+            </div>
 
             <div className="mb-4 w-full">
               <input
                 type="email"
                 placeholder="Enter Email"
                 value={userEmail}
+                name="userEmail"
                 onChange={(e) => setUserEmail(e.target.value)}
                 className="w-full px-4 py-3 rounded-lg bg-white bg-opacity-10 text-black focus:outline-none focus:bg-white focus:border-gray-500"
               />
@@ -128,15 +131,13 @@ const LoginPage = () => {
             <div className="mb-6 w-full">
               <input
                 type="password"
-                placeholder="Passcode"
+                name="userPassword"
+                placeholder="Create Password"
                 value={userPassword}
                 onChange={(e) => setUserPassword(e.target.value)}
                 className="w-full px-4 py-3 rounded-lg bg-white bg-opacity-10 text-black focus:outline-none focus:bg-white focus:border-gray-500"
               />
             </div>
-            <h1 className="mt-4 text-xs font-semibold text-white text-left w-full">
-              Having trouble in sign in?
-            </h1>
 
             <div className="flex items-center justify-between mt-8 w-full">
               <button
@@ -144,11 +145,11 @@ const LoginPage = () => {
                 onClick={handleSubmit}
                 className="w-full bg-lime-300 text-black font-bold py-3 px-4 rounded-lg hover:bg-lime-400 focus:outline-none"
               >
-                Login
+                Sign Up
               </button>
             </div>
             <h1 className="mt-6 text-sm font-semibold text-white text-center">
-              Or Sign in with
+              Or Sign up with
             </h1>
             <div className="mt-6 flex flex-row gap-3 justify-center items-center">
               <button className="w-1/2 bg-white bg-opacity-10 text-white border-2 font-bold border-gray-900 rounded-lg px-3 py-2 flex flex-row justify-center items-center gap-3">
@@ -160,8 +161,8 @@ const LoginPage = () => {
                 Apple
               </button>
             </div>
-            <h1 onClick={() => (window.location.href = "/signup")} className="mt-8 text-sm font-semibold text-white text-center">
-              Don't have an account? Sign Up now
+            <h1 className="mt-8 text-sm font-semibold text-white text-center">
+              Already have an account? Login now
             </h1>
           </div>
         </div>
@@ -170,4 +171,4 @@ const LoginPage = () => {
   );
 };
 
-export default LoginPage;
+export default SignupPage;
