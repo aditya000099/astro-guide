@@ -5,7 +5,7 @@ import { FaGoogle, FaApple } from "react-icons/fa";
 import bpat from "../assets/bpat.png";
 import { FaRegHandPointRight } from "react-icons/fa6";
 import axios from "axios";
-import { toast } from "react-toastify";
+import { toast, ToastContainer } from "react-toastify";
 import Cookies from "js-cookie";
 import  { jwtDecode } from "jwt-decode";
 
@@ -69,6 +69,7 @@ const SignupPage = () => {
         />
         <div className="absolute inset-0 bg-gradient-to-b from-blue-900/30 to-transparent"></div>
         <div className="absolute inset-0 flex items-center justify-center space-x-8 gap-20">
+        <ToastContainer />
           <div className="flex flex-col justify-center items-center bg-white bg-opacity-0 rounded-2xl p-10 px-20 shadow-lg">
             <h2 className="text-5xl font-black text-center text-white mb-4">
               AstroGuide
