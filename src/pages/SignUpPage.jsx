@@ -41,7 +41,7 @@ const SignupPage = () => {
 
     try {
     //   const response = await axios.post('http://localhost:8080/api/auth/register', {
-      const response = await axios.post('https://astroai-beige.vercel.app/api/auth/register', {
+      const response = await axios.post('https://astroaibackend.onrender.com/api/auth/register', {
         userName,
         userEmail,
         userPassword,
