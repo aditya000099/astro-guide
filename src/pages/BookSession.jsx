@@ -7,7 +7,7 @@ const BookSession = () => {
 
   const astrologers = [
     {
-      name: "Rushkof",
+      name: "Dr. Varun",
       experience: 10, // years
       price: 2000, // in cents, so $20.00
       availability: "Available",
@@ -19,7 +19,7 @@ const BookSession = () => {
       availability: "Busy",
     },
     {
-      name: "Zara",
+      name: "Dr. Mahana",
       experience: 15,
       price: 3000, // $30.00
       availability: "Available",
@@ -53,11 +53,10 @@ const BookSession = () => {
       "Content-Type": "application/json",
     };
 
-    // Send only the selected astrologer data
     const response = await fetch(`${apiUrl}/create-checkout-session`, {
       method: "POST",
       headers: headers,
-      body: JSON.stringify([astrologer]), // Wrap astrologer in an array
+      body: JSON.stringify([astrologer]), 
     });
 
     const session = await response.json();
