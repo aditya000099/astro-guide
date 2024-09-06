@@ -78,9 +78,10 @@ const AskAi = () => {
 
   return (
     <div className="w-[98.5vw] overflow-x-hidden">
+    <ToastContainer />
       <div className="bg-black w-full min-h-screen flex flex-col items-center justify-center">
         <div className="bg-black flex flex-row justify-center items-center gap-40 w-full max-w-6xl p-4">
-        <ToastContainer />
+        
           <div className="flex flex-col items-center p-4 justify-center font-black text-5xl">
             <div>
               Astro<span className="text-lime-300">Ai</span>
