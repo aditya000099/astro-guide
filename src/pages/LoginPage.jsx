@@ -52,7 +52,7 @@ const LoginPage = () => {
       });
 
       const token = response.data.token;
-      Cookies.set('authToken', token); // Set cookie for 7 days
+      Cookies.set('authToken', token); 
 
       toast.success('Login successful!');
       setTimeout(() => {
